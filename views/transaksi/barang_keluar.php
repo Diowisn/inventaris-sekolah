@@ -1,4 +1,14 @@
-<?php hakAkses(['admin']); ?>
+<?php 
+
+hakAkses(['admin']); 
+$mode       = $mode ?? 'keluar';
+$isKeluar   = ($mode === 'keluar');
+$labelAksi  = $isKeluar ? 'Barang Keluar' : 'Barang Masuk';
+$warnaTombol= $isKeluar ? 'danger' : 'success';
+$ikonAksi   = $isKeluar ? 'fa-arrow-up' : 'fa-arrow-down';
+$modalTarget= $isKeluar ? '#barang_keluar' : '#barang_masuk';
+
+?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -6,6 +16,74 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Barang Keluar</h1>
     </div>
+
+    <div class="card shadow mb-3 border-left-<?= $warnaTombol ?>">
+        <div class="card-header py-2 d-flex align-items-center justify-content-between">
+            <span>
+                <i class="fas fa-qrcode mr-1"></i> Scan QR / Barcode Barang
+                <!-- Label jelas ini halaman apa -->
+                <span class="badge badge-<?= $warnaTombol ?> ml-2">
+                    <i class="fas <?= $ikonAksi ?>"></i> <?= $labelAksi ?>
+                </span>
+            </span>
+            <button type="button" class="btn btn-sm btn-info" id="btnToggleScan">
+                <i class="fas fa-camera"></i> Buka Kamera
+            </button>
+        </div>
+        <div class="card-body" id="scanArea" style="display:none;">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="qr-reader" style="width:100%; max-width:400px;"></div>
+                    <div class="mt-2">
+                        <small class="text-muted">
+                            <i class="fas fa-info-circle"></i>
+                            Arahkan kamera ke QR Code barang. Form akan otomatis terisi.
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Atau ketik kode barang:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputKodeManual"
+                                placeholder="Contoh: BRG-0001">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-primary"
+                                    onclick="cariBarangByKode($('#inputKodeManual').val())">
+                                    <i class="fas fa-search"></i> Cari
+                                </button>
+                            </div>
+                        </div>
+                        <small class="text-muted">Tekan Enter atau klik Cari</small>
+                    </div>
+    
+                    <!-- Preview barang ditemukan -->
+                    <div id="previewBarang" class="alert alert-success" style="display:none;">
+                        <strong><i class="fas fa-check-circle"></i> Barang Ditemukan:</strong><br>
+                        <span id="previewNama" class="font-weight-bold"></span><br>
+                        <small class="text-muted">
+                            Stok saat ini: <strong id="previewStok"></strong> |
+                            Kondisi: <span id="previewKondisi"></span>
+                        </small>
+                        <hr class="my-2">
+                        <!-- Tombol lanjut — warna & label berbeda sesuai mode -->
+                        <button type="button"
+                            class="btn btn-<?= $warnaTombol ?> btn-sm btn-block"
+                            onclick="$('<?= $modalTarget ?>').modal('show')">
+                            <i class="fas <?= $ikonAksi ?>"></i>
+                            Lanjut Input <?= $labelAksi ?>
+                        </button>
+                    </div>
+    
+                    <!-- Preview tidak ditemukan -->
+                    <div id="previewError" class="alert alert-danger" style="display:none;">
+                        <i class="fas fa-times-circle"></i> Barang tidak ditemukan. Pastikan kode benar.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -117,3 +195,95 @@
         </div>
     </div>
 </div>
+
+<script>
+    var BASE_URL = '<?= base_url(); ?>';
+</script>
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script>
+(function () {
+    'use strict';
+ 
+    let html5QrCode = null;
+    let isScanning  = false;
+ 
+    document.getElementById('btnToggleScan').addEventListener('click', function () {
+        const scanArea  = document.getElementById('scanArea');
+        const isVisible = scanArea.style.display !== 'none';
+        if (isVisible) {
+            tutupKamera();
+        } else {
+            scanArea.style.display = 'block';
+            this.innerHTML = '<i class="fas fa-stop"></i> Tutup Kamera';
+            bukaKamera();
+        }
+    });
+ 
+    function bukaKamera() {
+        if (html5QrCode) html5QrCode.clear();
+        html5QrCode = new Html5Qrcode("qr-reader");
+        html5QrCode.start(
+            { facingMode: "environment" },
+            { fps: 10, qrbox: { width: 200, height: 200 } },
+            function onScanSuccess(decodedText) {
+                cariBarangByKode(decodedText);
+                tutupKamera();
+            },
+            function onScanFailure() {}
+        ).catch(function (err) {
+            alert('Kamera tidak bisa dibuka.\n' + err);
+        });
+        isScanning = true;
+    }
+ 
+    function tutupKamera() {
+        if (html5QrCode && isScanning) {
+            html5QrCode.stop().catch(function () {});
+            isScanning = false;
+        }
+        const btn = document.getElementById('btnToggleScan');
+        if (btn) btn.innerHTML = '<i class="fas fa-camera"></i> Buka Kamera';
+        const scanArea = document.getElementById('scanArea');
+        if (scanArea) scanArea.style.display = 'none';
+    }
+ 
+    // Enter key di input manual
+    document.getElementById('inputKodeManual').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            cariBarangByKode(this.value);
+        }
+    });
+ 
+    window.cariBarangByKode = function (kode) {
+        kode = kode.trim();
+        if (!kode) return;
+ 
+        document.getElementById('previewBarang').style.display = 'none';
+        document.getElementById('previewError').style.display  = 'none';
+ 
+        $.ajax({
+            url: BASE_URL + 'process/cari_barang.php',
+            type: 'GET',
+            data: { kode: kode },
+            dataType: 'json',
+            success: function (data) {
+                if (data.status === 'found') {
+                    $('#barang_id').val(data.idbarang).trigger('change');
+                    document.getElementById('previewNama').textContent    = data.nama_barang + ' (' + data.kode_barang + ')';
+                    document.getElementById('previewStok').textContent    = data.stok;
+                    document.getElementById('previewKondisi').textContent = data.kondisi;
+                    document.getElementById('previewBarang').style.display = 'block';
+                } else {
+                    document.getElementById('previewError').style.display = 'block';
+                }
+            },
+            error: function () {
+                document.getElementById('previewError').style.display = 'block';
+            }
+        });
+    };
+ 
+    window.addEventListener('beforeunload', tutupKamera);
+})();
+</script>

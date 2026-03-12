@@ -1,0 +1,223 @@
+- assests (folder)
+   - css (folder)
+      - sb-admin-2 (cascading style sheet document)
+      - sb-admin-2.min (cascading style sheet document)
+   - img (folder)
+      - favicon (png file)
+      - icon (png file)
+      - login (png file)
+      - undraw_posting_photo (svg file)
+   - js (folder)
+      - demo (folder)
+         - chart-area-demo (JavaScript file)
+         - chart-bar-demo (JavaScript file)
+         - chart-pie-demo (JavaScript file)
+         - datatables-demo (JavaScript file)
+         - sweet-alert (JavaScript file)
+      - sb-admin-2 (JavaScript file)
+      - sb-admin-2.min (JavaScript file)
+   - vendor (folder)
+      - bootstrap (folder)
+         - js (folder)
+            - bootstrap.bundle (JavaScript file)
+            - bootstrap.bundle.js.map (MAP file)
+            - bootstrap.bundle.min (JavaScript file)
+            - bootstrap.bundle.min.js.map (MAP file)
+            - bootstrap (JavaScript file)
+            - bootstrap.js.map (MAP file)
+            - bootstrap.min (JavaScript file)
+            - bootstrap.min.js.map (MAP file)
+         - scss (folder)
+            - mixins (folder)
+               - _alert (Sass Source file)
+               - _background-variant (Sass Source file)
+               - _badge (Sass Source file)
+               - _border-radius (Sass Source file)
+               - _box-shadow (Sass Source file)
+               - _breakpoints (Sass Source file)
+               - _buttons (Sass Source file)
+               - _caret (Sass Source file)
+               - _clearfix (Sass Source file)
+               - _deprecate (Sass Source file)
+               - _float (Sass Source file)
+               - _forms (Sass Source file)
+               - _gradients (Sass Source file)
+               - _grid (Sass Source file)
+               - _grid-framework (Sass Source file)
+               - _hover (Sass Source file)
+               - _image (Sass Source file)
+               - _list-group (Sass Source file)
+               - _lists (Sass Source file)
+               - _nav-divider (Sass Source file)
+               - _pagination (Sass Source file)
+               - _reset-text (Sass Source file)
+               - _resize (Sass Source file)
+               - _screen-reader (Sass Source file)
+               - _size (Sass Source file)
+               - _table-row (Sass Source file)
+               - _text-emphasis (Sass Source file)
+               - _text-hide (Sass Source file)
+               - _text-truncate (Sass Source file)
+               - _transition (Sass Source file)
+               - _visibility (Sass Source file)
+            - utilities (folder)
+               - _align (Sass Source file)
+               - _background (Sass Source file)
+               - _borders (Sass Source file)
+               - _clearfix (Sass Source file)
+               - _display (Sass Source file)
+               - _embed (Sass Source file)
+               - _flex (Sass Source file)
+               - _float (Sass Source file)
+               - _overflow (Sass Source file)
+               - _position (Sass Source file)
+               - _screenreaders (Sass Source file)
+               - _shadows (Sass Source file)
+               - _sizing (Sass Source file)
+               - _spacing (Sass Source file)
+               - _stretched-link (Sass Source file)
+               - _text (Sass Source file)
+               - _visibility (Sass Source file)
+            - vendor (folder)
+               - _rfs (Sass Source file)
+            - _alert (Sass Source file)
+            - _badge (Sass Source file)
+            - _breadcrumb (Sass Source file)
+            - _button-group (Sass Source file)
+            - _buttons (Sass Source file)
+            - _card (Sass Source file)
+            - _carousel (Sass Source file)
+            - _close (Sass Source file)
+            - _code (Sass Source file)
+            - _custom-forms (Sass Source file)
+            - _dropdown (Sass Source file)
+            - _forms (Sass Source file)
+            - _functions (Sass Source file)
+            - _grid (Sass Source file)
+            - _images (Sass Source file)
+            - _input-group (Sass Source file)
+            - _jumbotron (Sass Source file)
+            - _list-group (Sass Source file)
+            - _media (Sass Source file)
+            - _mixins (Sass Source file)
+            - _modal (Sass Source file)
+            - _nav (Sass Source file)
+            - _navbar (Sass Source file)
+            - _pagination (Sass Source file)
+            - _popover (Sass Source file)
+            - _print (Sass Source file)
+            - _progress (Sass Source file)
+            - _reboot (Sass Source file)
+            - _root (Sass Source file)
+            - _spinners (Sass Source file)
+            - _tables (Sass Source file)
+            - _toasts (Sass Source file)
+            - _tooltip (Sass Source file)
+            - _transitions (Sass Source file)
+            - _type (Sass Source file)
+            - _utilities (Sass Source file)
+            - _variables (Sass Source file)
+            - bootstrap (Sass Source file)
+            - bootstrap-grid (Sass Source file)
+            - bootstrap-reboot (Sass Source file)
+      - datatables (folder)
+      - fontawesome-free (folder)
+      - jquery (folder)
+      - jquery-easing (folder)
+      - jquery-mask (folder)
+      - select2 (folder)
+      - sweet-alert (folder)
+- config (folder)
+- database (folder)
+- process (folder)
+- index (php file)
+- login (php file)
+
+
+
+tanggal Mulai proyek : 14 Oktober 2024
+tanggal berakhir proyek : 14 Februari 2025
+setiap 1 pekan saya hanya mengerjakan pada hari Rabu sampai hari Sabtu saja, dan saya juga libur pada saat liburan sesuai kalender nasional indonesia .
+
+komponen aplikasi :
+- assests (folder) yang berisi :
+   - css (folder) yang berisi :
+      - sb-admin-2 (Cascading Style Sheet Document)
+      - sb-admin-2.min (Cascading Style Sheet Document)
+   - img (folder) yang berisi file-file PNG
+   - js (folder) yang berisi :
+      - demo (folder) yang berisi :
+         - chart-area-demo (JavaScript file)
+         - chart-bar-demo (JavaScript file)
+         - chart-pie-demo (JavaScript file)
+         - datatables-demo (JavaScript file)
+         - sweet-alert (JavaScript file)
+      - sb-admin-2 (JavaScript file)
+      - sb-admin-2.min (JavaScript file)
+   - vendor (folder) yang berisi :
+      -bootstrap (folder) yang berisi :
+         - js (folder) yang berisi file-file JS file & MAP file
+         - scss (folder) yang berisi : file-file Sass Source File
+      - datatables  (folder) yang berisi file-file JS file & Cascading Style Sheet Document
+      - fontawesome-free (folder) yang berisi file-file Cascading Style Sheet Document, JS file, LESS Source file, Sass Source File, HTML Document, JSON Source, dan file-file font
+      - jquery (folder) yang berisi JS file & MAP file
+      - jquery-easing (folder) yang berisi JS file
+      - jquery-mask (folder) yang berisi JS file
+      - select2 (folder) yang berisi Cascading Style Sheet Document & JS file
+      - sweet alert (folder yang berisi Cascading Style Sheet Document & JS file
+- config (folder) yang berisi :
+   - conn (php file)
+   - footer (php file)
+   - function (php file)
+   - header (php file)
+   - page (php file)
+   - sidebar (php file)
+   - topbar (php file)
+
+- database (folder) yang berisi file SQL Text File
+
+- process (folder) yang berisi :
+   - barang (php file)
+   - barang_keluar (php file)
+   - barang_masuk (php file)
+   - cetak_barang_keluar (php file)
+   - cetak_barang_keluar_today (php file)
+   - cetak_barang_masuk (php file)
+   - cetak_barang_masuk_today (php file)
+   - kategori (php file)
+   - lap_barang_keluar (php file)
+   - lap_barang_masuk (php file)
+   - lap_stok_barang (php file)
+   - logout (php file)
+   - merek (php file)
+   - users (php file)
+   - view_barang (php file)
+   - view_user (php file)
+   
+-views (folder) yang berisi :
+   - laporan (folder) yang berisi :
+   - master (folder) yang berisi :
+   - transaksi (folder) yang berisi :
+   - home (php file)
+
+- index (php file)
+- login (php file)
+
+awalilah logbook dengan beberapa kali analisis sebelum pembuatan proyek
+
+pada dashboard aplikasi ini terdapat 4 menu dan didalamnya terdapat beberapa sub-menu, yaitu :
+- Beranda
+- Master
+   - Merk
+   - Kategori
+   - Barang
+   - Pengguna
+- Transaksi 
+   - Barang Masuk
+   - Barang Keluar
+- Laporan
+   - Laporan Barang Masuk
+   - Laporan Barang Keluar
+   - Laporan Stok Barang
+
+dan saya ada sedikit catatan untuk anda, bahwa sampai hari ini saya baru sampai tahap menyelesaikan aplikasi dan belum sampai tahap presentasi, laporan, evaluasi dan proses-proses berikutnya, tolong buatkan logbook dari tanggal 14 Oktober 2024  sampai tanggal 13 Januari 2025 sesuai catatan diatas

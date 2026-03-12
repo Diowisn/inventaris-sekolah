@@ -1,14 +1,4 @@
 <?php
-/**
- * TAHAP 5 - Dashboard Home yang Lebih Informatif
- * File: views/home.php  (gantikan yang lama)
- *
- * Perubahan:
- * - Bisa diakses admin DAN staf
- * - Kartu statistik ringkasan
- * - Alert stok kritis
- * - Tabel barang masuk & keluar hari ini
- */
 
 hakAkses(['admin', 'staff', 'gudang']);
 $now = date('Y-m-d');

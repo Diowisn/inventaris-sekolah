@@ -41,6 +41,7 @@
                 <a class="collapse-item <?=isset($merek)?'active':'';?>" href="?merek">Merek</a>
                 <a class="collapse-item <?=isset($kategori)?'active':'';?>" href="?kategori">Kategori</a>
                 <a class="collapse-item <?=isset($barang)?'active':'';?>" href="?barang">Barang</a>
+                <a class="collapse-item <?= isset($qrcode)?'active': '';?>" href="?qrcode">QR Code Barang</a>
                 <a class="collapse-item <?=isset($pengguna)?'active':'';?>" href="?pengguna">Pengguna</a>
             </div>
         </div>

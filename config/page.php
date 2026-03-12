@@ -37,6 +37,14 @@
         $laporan = $lap_barang_keluar = true;
         $views = 'views/laporan/lap_barang_keluar.php';
     }
+    else if(isset($_GET['lap_stok_barang'])){
+        $laporan = $lap_stok_barang = true;
+        $views = 'views/laporan/lap_stok_barang.php';
+    }
+    else if(isset($_GET['qrcode'])){
+        $master = $qrcode = true;
+        $views = 'views/qrcode.php';
+    }
     else{
         $home = true;
         $views = 'views/home.php';

@@ -20,9 +20,6 @@
     <hr class="sidebar-divider">
     <div class="sidebar-heading">Menu</div>
 
-    <!-- ================================================================
-         MASTER — hanya admin
-         ================================================================ -->
     <?php if ($_SESSION['level'] == 'admin'): ?>
     <li class="nav-item <?= isset($master) ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#master"
@@ -43,11 +40,6 @@
     </li>
     <?php endif; ?>
 
-    <!-- ================================================================
-         TRANSAKSI — admin & staf
-         Admin  : Barang Masuk, Barang Keluar, Peminjaman, Stok Barang
-         Staf   : Barang Masuk, Barang Keluar, Peminjaman (tanpa Stok Barang)
-         ================================================================ -->
     <li class="nav-item <?= isset($transaksi) ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
             aria-expanded="true" aria-controls="transaksi">
@@ -59,20 +51,12 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item <?= isset($barang_masuk)  ? 'active' : ''; ?>" href="?barang_masuk">Barang Masuk</a>
                 <a class="collapse-item <?= isset($barang_keluar) ? 'active' : ''; ?>" href="?barang_keluar">Barang Keluar</a>
-                <a class="collapse-item <?= isset($peminjaman)    ? 'active' : ''; ?>" href="?peminjaman">Peminjaman</a>
-                <!-- Stok Barang hanya untuk admin -->
-                <?php if ($_SESSION['level'] == 'admin'): ?>
-                <a class="collapse-item <?= isset($lap_stok_barang) ? 'active' : ''; ?>" href="?lap_stok_barang">Stok Barang</a>
-                <?php endif; ?>
+                <a class="collapse-item <?= isset($peminjaman)    ? 'active' : ''; ?>" href="?peminjaman">Peminjaman</a>                
+                <a class="collapse-item <?= isset($lap_stok_barang) ? 'active' : ''; ?>" href="?lap_stok_barang">Stok Barang</a>                
             </div>
         </div>
     </li>
 
-    <!-- ================================================================
-         LAPORAN — admin & staf
-         Admin  : Lap. Barang Masuk, Lap. Barang Keluar, Lap. Stok Barang
-         Staf   : Lap. Barang Masuk, Lap. Barang Keluar
-         ================================================================ -->
     <li class="nav-item <?= isset($laporan) ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan"
             aria-expanded="true" aria-controls="laporan">
@@ -84,13 +68,10 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item <?= isset($lap_barang_masuk)  ? 'active' : ''; ?>" href="?lap_barang_masuk">Lap. Barang Masuk</a>
                 <a class="collapse-item <?= isset($lap_barang_keluar) ? 'active' : ''; ?>" href="?lap_barang_keluar">Lap. Barang Keluar</a>
-                <!-- Laporan Stok hanya untuk admin -->
-                <?php if ($_SESSION['level'] == 'admin'): ?>
                 <a class="collapse-item <?= isset($lap_stok_barang) ? 'active' : ''; ?>"
                     href="<?= base_url() ?>process/lap_stok_barang.php" target="_blank">
                     Lap. Stok Barang
                 </a>
-                <?php endif; ?>
             </div>
         </div>
     </li>

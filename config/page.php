@@ -49,6 +49,10 @@
         $transaksi = $peminjaman = true;
         $views = 'views/transaksi/peminjaman.php';
     }
+    else if(isset($_GET['lap_stok'])){
+        $transaksi = $lap_stok = true;
+        $views = 'views/transaksi/lap_stok.php';
+    }
     else{
         $home = true;
         $views = 'views/home.php';

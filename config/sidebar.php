@@ -59,6 +59,7 @@
                 <a class="collapse-item <?=isset($barang_masuk)?'active':'';?>" href="?barang_masuk">Barang Masuk</a>
                 <a class="collapse-item <?=isset($barang_keluar)?'active':'';?>" href="?barang_keluar">Barang Keluar</a>
                 <a class="collapse-item <?= isset($peminjaman) ? 'active' : '' ?>"href="?peminjaman">Peminjaman</a>
+                <a class="collapse-item <?=isset($lap_stok)?'active':'';?>"href="?lap_stok">Stok Barang</a>  
             </div>
         </div>
     </li>

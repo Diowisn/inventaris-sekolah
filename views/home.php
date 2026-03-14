@@ -25,7 +25,7 @@ $keluarHariIni= mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) as total 
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <i class="fas fa-exclamation-triangle mr-2"></i>
         <strong>Perhatian!</strong> Ada <strong><?= $stokKritis ?></strong> barang dengan stok kritis (≤ 2 unit).
-        <a href="?lap_stok_barang&kondisi=&kategori_id=" class="alert-link ml-2">Lihat detail →</a>
+        <a href="?lap_stok&kondisi=&kategori_id=" class="alert-link ml-2">Lihat detail →</a>
         <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
     </div>
     <?php endif; ?>
@@ -34,7 +34,7 @@ $keluarHariIni= mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) as total 
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="fas fa-tools mr-2"></i>
         <strong><?= $barangRusak ?></strong> barang dalam kondisi rusak atau hilang.
-        <a href="?lap_stok_barang" class="alert-link ml-2">Lihat detail →</a>
+        <a href="?lap_stok" class="alert-link ml-2">Lihat detail →</a>
         <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
     </div>
     <?php endif; ?>

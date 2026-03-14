@@ -1,6 +1,7 @@
 <?php 
 
-hakAkses(['admin']); 
+hakAkses(['admin', 'staff', 'gudang']);
+
 $mode        = $mode ?? 'masuk';
 $isKeluar    = ($mode === 'keluar');
 $labelAksi   = $isKeluar ? 'Barang Keluar' : 'Barang Masuk';

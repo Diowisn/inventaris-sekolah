@@ -1,4 +1,4 @@
-<?php hakAkses(['admin', 'staff', 'gudang']); ?>
+<?php hakAkses(['admin']); ?>
 
 <?php
 // ── Filter dari URL ───────────────────────────────────────────────────────────

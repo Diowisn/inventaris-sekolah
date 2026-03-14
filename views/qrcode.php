@@ -1,6 +1,6 @@
 <?php
 
-hakAkses(['admin', 'staff', 'gudang']);
+hakAkses(['admin']);
 
 $rootPath   = dirname(__DIR__); 
 $qrLibPath  = $rootPath . '/assets/vendor/phpqrcode/qrlib.php';

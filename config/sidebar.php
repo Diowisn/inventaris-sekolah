@@ -58,6 +58,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item <?=isset($barang_masuk)?'active':'';?>" href="?barang_masuk">Barang Masuk</a>
                 <a class="collapse-item <?=isset($barang_keluar)?'active':'';?>" href="?barang_keluar">Barang Keluar</a>
+                <a class="collapse-item <?= isset($peminjaman) ? 'active' : '' ?>"href="?peminjaman">Peminjaman</a>
             </div>
         </div>
     </li>

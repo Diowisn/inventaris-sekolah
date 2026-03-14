@@ -45,6 +45,10 @@
         $master = $qrcode = true;
         $views = 'views/qrcode.php';
     }
+    else if(isset($_GET['peminjaman'])){
+        $transaksi = $peminjaman = true;
+        $views = 'views/transaksi/peminjaman.php';
+    }
     else{
         $home = true;
         $views = 'views/home.php';

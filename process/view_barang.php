@@ -1,8 +1,5 @@
 <?php
-/**
- * process/view_barang.php
- * Endpoint AJAX untuk ambil data barang saat edit — tambahkan field jenis
- */
+
 session_start();
 include('../config/conn.php');
 include('../config/function.php');

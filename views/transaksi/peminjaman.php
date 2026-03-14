@@ -1,7 +1,6 @@
-<?php hakAkses(['admin', 'staff', 'gudang']); ?>
+<?php 
+hakAkses(['admin', 'staff', 'gudang']);
 
-<?php
-// Hitung peminjaman terlambat & update statusnya otomatis
 mysqli_query($con,
     "UPDATE peminjaman SET status='Terlambat'
      WHERE status='Dipinjam' AND tanggal_rencana < CURDATE()"

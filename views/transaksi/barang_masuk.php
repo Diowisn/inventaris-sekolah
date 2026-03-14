@@ -205,7 +205,7 @@ $modalTarget = $isKeluar ? '#barang_keluar' : '#barang_masuk';
                             </div>
                         </div>
 
-                        <!-- Total Harga (readonly, auto hitung) -->
+                        <!-- Total Harga -->
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="harga">Total Harga</label>
@@ -217,7 +217,7 @@ $modalTarget = $isKeluar ? '#barang_keluar' : '#barang_masuk';
                                         id="harga_display" placeholder="0" readonly
                                         style="background:#f8f9fc;">
                                 </div>
-                                <!-- Field hidden yang dikirim ke server -->
+
                                 <input type="hidden" id="harga" name="harga" value="0">
                                 <small class="text-muted">Jumlah × Harga Satuan</small>
                             </div>
@@ -332,20 +332,17 @@ $modalTarget = $isKeluar ? '#barang_keluar' : '#barang_masuk';
 
     // ── Hitung total harga otomatis ───────────────────────────────────────────
     window.hitungTotal = function () {
-        // Hapus titik pemisah ribuan sebelum parse
         const jumlah  = parseInt(document.getElementById('jumlah').value) || 0;
         const satuan  = parseInt(document.getElementById('harga_satuan').value.replace(/\./g, '')) || 0;
         const total   = jumlah * satuan;
 
-        // Tampilkan dengan format ribuan
         document.getElementById('harga_display').value = total.toLocaleString('id-ID');
-        // Simpan angka asli ke hidden field
         document.getElementById('harga').value = total;
     };
 
     // Format input harga satuan dengan pemisah ribuan saat mengetik
     document.getElementById('harga_satuan').addEventListener('input', function () {
-        let val = this.value.replace(/\D/g, ''); // ambil angka saja
+        let val = this.value.replace(/\D/g, '');
         if (val) {
             this.value = parseInt(val).toLocaleString('id-ID');
         }

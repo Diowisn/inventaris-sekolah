@@ -10,7 +10,6 @@ if (isset($_POST['tambah'])) {
     $keterangan = mysqli_real_escape_string($con, trim($_POST['keterangan']));
     $tanggal    = mysqli_real_escape_string($con, $_POST['tanggal']);
 
-    // Validasi stok di server (jangan hanya andalkan validasi di browser)
     $cekStok = mysqli_fetch_assoc(
         mysqli_query($con, "SELECT stok, nama_barang FROM barang WHERE idbarang = '$barang_id'")
     );

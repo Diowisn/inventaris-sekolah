@@ -245,7 +245,7 @@ $modalTarget = $isKeluar ? '#barang_keluar' : '#barang_masuk';
 
     let html5QrCode = null;
     let isScanning  = false;
-    let stokTersedia = 0; // simpan stok barang yang dipilih
+    let stokTersedia = 0;
 
     // ── Toggle kamera ─────────────────────────────────────────────────────────
     document.getElementById('btnToggleScan').addEventListener('click', function () {

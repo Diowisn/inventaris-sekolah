@@ -1,6 +1,6 @@
 <?php
-include ('../config/conn.php');
-include ('../config/function.php');
+include('../config/conn.php');
+include('../config/function.php');
 
 // ── Filter (opsional) ─────────────────────────────────────────────────────────
 $filter_kategori = isset($_GET['kategori_id']) ? (int)$_GET['kategori_id'] : 0;
@@ -48,19 +48,55 @@ $totalKritis = count(array_filter($rows, fn($r) => $r['stok'] <= 2));
             padding: 20px;
         }
 
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #000;
+        /* Header institusi */
+        .header-institusi {
+            display: flex;
+            align-items: center;
+            border-bottom: 3px double #000;
             padding-bottom: 8px;
+            margin-bottom: 12px;
         }
-        .header h2 {
-            font-size: 14pt;
+        .header-logo {
+            width: 70px;
+            height: 70px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .header-teks {
+            flex: 1;
+            text-align: center;
+        }
+        .header-teks .nama-institusi {
+            font-size: 15pt;
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .header p {
+        .header-teks .alamat {
+            font-size: 9pt;
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+        .header-teks .telp {
+            font-size: 9pt;
+        }
+
+        /* Judul laporan */
+        .judul-laporan {
+            text-align: center;
+            margin: 10px 0 4px;
+        }
+        .judul-laporan h2 {
+            font-size: 13pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .judul-laporan p {
             font-size: 10pt;
             margin-top: 3px;
         }
@@ -86,25 +122,20 @@ $totalKritis = count(array_filter($rows, fn($r) => $r['stok'] <= 2));
         thead tr { background-color: #333; color: #fff; text-align: center; }
         tbody tr:nth-child(even) { background-color: #f5f5f5; }
 
-        /* Baris kategori */
         .row-kategori { background: #ddd !important; font-weight: bold; }
 
-        /* Kondisi */
         .kondisi-baik         { color: #2e7d32; font-weight: bold; }
         .kondisi-rusak-ringan { color: #f57f17; font-weight: bold; }
         .kondisi-rusak-berat  { color: #c62828; font-weight: bold; }
         .kondisi-hilang       { color: #6a1b9a; font-weight: bold; }
 
-        /* Stok */
         .stok-kritis { background-color: #fff3cd !important; }
         .stok-habis  { background-color: #f8d7da !important; }
 
-        /* Keterangan */
         .keterangan { margin-top: 8px; font-size: 9pt; display: flex; gap: 16px; }
         .ket-item   { display: flex; align-items: center; gap: 4px; }
         .ket-box    { width: 14px; height: 14px; border: 1px solid #999; }
 
-        /* Tanda tangan */
         .ttd       { margin-top: 30px; display: flex; justify-content: flex-end; }
         .ttd-box   { text-align: center; width: 200px; }
         .ttd-space { height: 60px; border-bottom: 1px solid #000; margin: 8px 0; }
@@ -116,14 +147,33 @@ $totalKritis = count(array_filter($rows, fn($r) => $r['stok'] <= 2));
 </head>
 <body>
 
-    <!-- Header -->
-    <div class="header">
+    <!-- Header Institusi -->
+    <div class="header-institusi">
+        <div class="header-logo">
+            <img src="../assets/img/icon.png" alt="Logo">
+        </div>
+        <div class="header-teks">
+            <div class="nama-institusi">Pondok Modern Assalaam</div>
+            <div class="alamat">
+                Jl. Raya Secang Km. 05 Gandokan, Kranggan, Temanggung 56271
+            </div>
+            <div class="telp">
+                Telp: (0293) 4960541 &nbsp;|&nbsp;
+                HP: 0813-2725-3337 &nbsp;/&nbsp; 0813-2782-5824
+            </div>
+        </div>
+    </div>
+
+    <!-- Judul Laporan -->
+    <div class="judul-laporan">
         <h2>Laporan Stok Barang</h2>
         <p>Dicetak pada: <?= date('d F Y, H:i') ?> WIB</p>
         <?php if ($filter_kondisi): ?>
             <p>Filter Kondisi: <strong><?= htmlspecialchars($filter_kondisi) ?></strong></p>
         <?php endif; ?>
     </div>
+
+    <br>
 
     <!-- Statistik Ringkasan -->
     <div class="statistik">
@@ -172,7 +222,6 @@ $totalKritis = count(array_filter($rows, fn($r) => $r['stok'] <= 2));
         $n = 1;
         $kategoriAktif = '';
         foreach ($rows as $row):
-            // Baris pemisah per kategori
             if ($row['nama_kategori'] !== $kategoriAktif):
                 $kategoriAktif = $row['nama_kategori'];
         ?>
@@ -182,7 +231,6 @@ $totalKritis = count(array_filter($rows, fn($r) => $r['stok'] <= 2));
                 </td>
             </tr>
         <?php endif;
-
             $kondisi      = $row['kondisi'] ?? 'Baik';
             $kondisiClass = match($kondisi) {
                 'Baik'         => 'kondisi-baik',
@@ -212,7 +260,6 @@ $totalKritis = count(array_filter($rows, fn($r) => $r['stok'] <= 2));
             </tr>
         <?php endforeach; ?>
 
-        <!-- Total -->
         <tr style="background:#333; color:#fff; font-weight:bold;">
             <td colspan="7" align="right">TOTAL STOK KESELURUHAN :</td>
             <td align="center"><?= $totalStok ?></td>
@@ -233,7 +280,7 @@ $totalKritis = count(array_filter($rows, fn($r) => $r['stok'] <= 2));
     <!-- Tanda tangan -->
     <div class="ttd">
         <div class="ttd-box">
-            <div><?= date('d F Y') ?></div>
+            <div>Temanggung, <?= date('d F Y') ?></div>
             <div>Penanggung Jawab,</div>
             <div class="ttd-space"></div>
             <div>(__________________)</div>

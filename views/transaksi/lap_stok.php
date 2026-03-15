@@ -5,7 +5,7 @@
 $filter_kategori = isset($_GET['kategori_id']) ? (int)$_GET['kategori_id'] : 0;
 $filter_kondisi  = isset($_GET['kondisi'])     ? mysqli_real_escape_string($con, $_GET['kondisi']) : '';
 $filter_jenis    = isset($_GET['jenis'])       ? mysqli_real_escape_string($con, $_GET['jenis']) : '';
-$filter_kritis   = isset($_GET['kritis']);     // flag khusus tampilkan stok kritis saja
+$filter_kritis   = isset($_GET['kritis']);
 
 $where = "WHERE 1=1";
 if ($filter_kategori) $where .= " AND b.kategori_id = '$filter_kategori'";

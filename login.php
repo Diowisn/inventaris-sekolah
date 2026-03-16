@@ -45,7 +45,7 @@ if(isset($_POST['cek_login'])){
     <title>INVENTARIS ASSALAAM</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?=$base_url;?>assets/img/favicon1.png">
+    <link rel="icon" type="image/png" href="<?=$base_url;?>assets/img/icon.png">
 
     <!-- Custom fonts for this template-->
     <link href="<?=$base_url;?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
